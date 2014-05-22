@@ -14,5 +14,4 @@ do_install_append() {
     install ${WORKDIR}/rsyslog.conf ${D}${sysconfdir}/rsyslog.conf
 
     install ${WORKDIR}/rsyslog.service ${D}${base_libdir}/systemd/system/rsyslog.service
-    #ln -s ${base_libdir}/systemd/system/rsyslog.service ${D}${sysconfdir}/systemd/system/multi-user.target.wants/rsyslog.service
 }
