@@ -1,6 +1,8 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 PRINC := "${@int(PRINC) + 1}"
 
+inherit systemd
+
 SRC_URI += "\
    file://rsyslog.conf \
    file://rsyslog.service \
@@ -8,10 +10,11 @@ SRC_URI += "\
 
 do_install_append() {
     install -d ${D}/${sysconfdir}/${PN}
-    install -d ${D}${base_libdir}/systemd/system
-    install -d ${D}${sysconfdir}/systemd/system/multi-user.target.wants/
-
     install ${WORKDIR}/rsyslog.conf ${D}${sysconfdir}/rsyslog.conf
-
-    install ${WORKDIR}/rsyslog.service ${D}${base_libdir}/systemd/system/rsyslog.service
 }
+
+RPROVIDES_${PN} += "${PN}-systemd"
+RREPLACES_${PN} += "${PN}-systemd"
+RCONFLICTS_${PN} += "${PN}-systemd"
+SYSTEMD_SERVICE_${PN} = "rsyslog.service"
+SYSTEMD_AUTO_ENABLE = "disable"
