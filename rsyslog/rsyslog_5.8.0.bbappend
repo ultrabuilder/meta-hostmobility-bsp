@@ -11,6 +11,9 @@ SRC_URI += "\
 do_install_append() {
     install -d ${D}/${sysconfdir}/${PN}
     install ${WORKDIR}/rsyslog.conf ${D}${sysconfdir}/rsyslog.conf
+
+    install -d ${D}${base_libdir}/systemd/system
+    install ${WORKDIR}/rsyslog.service ${D}${base_libdir}/systemd/system/rsyslog.service
 }
 
 RPROVIDES_${PN} += "${PN}-systemd"
