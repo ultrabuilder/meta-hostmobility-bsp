@@ -46,4 +46,3 @@ MACHINE_EXTRA_RRECOMMENDS_append_tegra = " ${@bb.utils.contains('DISTRO_FEATURES
 # used by sysvinit_2
 SERIAL_CONSOLE = "115200 ttyS0"
 
-IMAGE_FSTYPES ?= "tar.xz"
