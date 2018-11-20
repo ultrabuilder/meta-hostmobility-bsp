@@ -20,17 +20,23 @@ config_script () {
 #    #sets CONFIG_TEGRA_CAMERA unconditionally to 'y'
 #    sed -i -e /CONFIG_TEGRA_CAMERA/d ${B}/.config
 #    echo "CONFIG_TEGRA_CAMERA=y" >> ${B}/.config
-    echo "dummy" > /dev/null
+  sed -i -e /CONFIG_FW_LOADER/d ${B}/.config
+  echo "CONFIG_FW_LOADER=y" >> ${B}/.config
+  sed -i -e /CONFIG_ATH9K_HTC_DEBUG/d ${B}/.config
+  echo "CONFIG_ATH9K_HTC_DEBUG=y" >> ${B}/.config
+  sed -i -e /CONFIG_LIB80211/d ${B}/.config
+  echo "CONFIG_LIB80211=y" >> ${B}/.config
+  sed -i -e /LIB80211_DEBUG/d ${B}/.config
+  echo "LIB80211_DEBUG=y" >> ${B}/.config
+ # sed -i -e /CONFIG_WIRELESS_EXT/d ${B}/.config
+ # echo "CONFIG_WIRELESS_EXT=y" >> ${B}/.config
 }
 
 do_configure_prepend () {
-    #use the defconfig provided in the kernel source tree
-    #assume its called ${MACHINE}_defconfig, but with '_' instead of '-'
-    DEFCONFIG="`echo ${MACHINE} | sed -e 's/\-/\_/g' -e 's/$/_defconfig/'`"
 
     cd ${S}
     export KBUILD_OUTPUT=${B}
-    oe_runmake $DEFCONFIG
+    oe_runmake ${KERNEL_DEFCONFIG}
 
     #maybe change some configuration
     config_script
