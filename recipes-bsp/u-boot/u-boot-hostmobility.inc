@@ -15,7 +15,7 @@ PROVIDES += "u-boot"
 
 LOCALVERSION = " ${SRCBRANCH}"
 
-SRC_URI = "git://github.com/hostmobility/u-boot-toradex.git;protocol=https;branch=${SRCBRANCH}"
+SRC_URI = "git://git.toradex.com/u-boot-toradex.git;protocol=https;branch=${SRCBRANCH}"
 
 S = "${WORKDIR}/git"
 
@@ -26,9 +26,6 @@ EXTRA_OEMAKE += 'HOSTCC="${BUILD_CC} ${BUILD_CPPFLAGS}" \
                  HOSTLDFLAGS="${BUILD_LDFLAGS}" \
                  HOSTSTRIP=true'
 
-# require u-boot-dtb-tegra.bin to be used
-UBOOT_IMAGE_tegra = "u-boot-dtb-tegra-${MACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
-UBOOT_BINARY_tegra = "u-boot-dtb-tegra.${UBOOT_SUFFIX}"
-UBOOT_SYMLINK_tegra = "u-boot-dtb-tegra-${MACHINE}.${UBOOT_SUFFIX}"
+
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

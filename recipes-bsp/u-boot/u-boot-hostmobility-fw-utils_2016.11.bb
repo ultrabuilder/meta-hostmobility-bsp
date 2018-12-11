@@ -12,8 +12,9 @@ DEFAULT_PREFERENCE = "1"
 
 FILESPATHPKG =. "git:"
 
-SRCREV = "552012e85e6b3eab7613be3a9426b2d5c89caad5"
-SRCBRANCH = "2016.11-hm"
+SRCREV = "8668e85e64dbe5deb144e45f2eed5dfe0adfafc3"
+SRCBRANCH = "2016.11-toradex"
+
 SRC_URI = " \
     git://github.com/hostmobility/u-boot-toradex.git;protocol=https;branch=${SRCBRANCH} \
 	file://default-gcc.patch \
