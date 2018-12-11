@@ -2,13 +2,10 @@ include u-boot-hostmobility.inc
 
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
 
-<<<<<<< Updated upstream
-SRCREV = "552012e85e6b3eab7613be3a9426b2d5c89caad5"
-SRCBRANCH = "2016.11-hm"
-=======
+
 SRCREV = "8668e85e64dbe5deb144e45f2eed5dfe0adfafc3"
 SRCBRANCH = "2016.11-toradex"
->>>>>>> Stashed changes
+
 PV = "v${SRCBRANCH}+git${SRCPV}"
 
 DEFAULT_PREFERENCE = "1"
