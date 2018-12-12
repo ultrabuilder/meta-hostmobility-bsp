@@ -1,29 +1,34 @@
+include u-boot-hostmobility.inc
+
+
 SUMMARY = "U-boot bootloader fw_printenv/setenv utils"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://Licenses/README;md5=c7383a594871c03da76b3707929d2919"
+LIC_FILES_CHKSUM = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
 SECTION = "bootloader"
 PROVIDES = "u-boot-fw-utils"
 RPROVIDES_${PN} = "u-boot-fw-utils"
 DEPENDS = "mtd-utils"
+DEPENDS += "u-boot-hostmobility"
+
+include conf/tdx_version.conf
 
 FILESPATHPKG =. "git:"
 
-SRCREV = "68d62aa5688ca944cbcdde163ca5c54b9379dce6"
-SRCBRANCH = "2015.04-hm"
-SRC_URI = " \
-    git://github.com/hostmobility/u-boot-toradex.git;protocol=https;branch=${SRCBRANCH} \
+SRC_URI += " \
+	file://default-gcc.patch \
     file://fw_env.config \
 "
 
 SRC_URI_append_tegra3 = " file://fw_unlock_mmc.sh"
 
-PV = "v2015.04-hm+git${SRCPV}"
+INSANE_SKIP_${PN} = "already-stripped"
+EXTRA_OEMAKE_class-target = 'CROSS_COMPILE=${TARGET_PREFIX} CC="${CC} ${CFLAGS} ${LDFLAGS}" HOSTCC="${BUILD_CC} ${BUILD_CFLAGS} ${BUILD_LDFLAGS}" V=1'
+EXTRA_OEMAKE_class-cross = 'ARCH=${TARGET_ARCH} CC="${CC} ${CFLAGS} ${LDFLAGS}" V=1'
 
-S = "${WORKDIR}/git"
-
-EXTRA_OEMAKE = 'CC="${CC}" STRIP="${STRIP}"'
-
-INSANE_SKIP_${PN} = "already-stripped ldflags"
+FILES_${PN} += " \
+    /opt/hm/fw_env/fw_printenv \
+    /opt/hm/fw_env/fw_setenv \
+"
 
 inherit pkgconfig uboot-config
 
@@ -36,6 +41,11 @@ do_install () {
     install -d ${D}${base_sbindir} ${D}${sysconfdir}
     install -m 755 ${S}/tools/env/fw_printenv ${D}${base_sbindir}/fw_printenv
     ln -s fw_printenv ${D}${base_sbindir}/fw_setenv
+    
+    install -d ${D}/opt/hm/fw_env
+    install -m 755 ${S}/tools/env/fw_printenv ${D}/opt/hm/fw_env/fw_printenv
+    ln -s fw_printenv ${D}/opt/hm/fw_env/fw_setenv
+
     install -m 644 ${WORKDIR}/fw_env.config ${D}${sysconfdir}/
 }
 
