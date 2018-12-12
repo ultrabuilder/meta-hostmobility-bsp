@@ -1,3 +1,6 @@
+include u-boot-hostmobility.inc
+
+
 SUMMARY = "U-boot bootloader fw_printenv/setenv utils"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
@@ -5,27 +8,18 @@ SECTION = "bootloader"
 PROVIDES = "u-boot-fw-utils"
 RPROVIDES_${PN} = "u-boot-fw-utils"
 DEPENDS = "mtd-utils"
+DEPENDS += "u-boot-hostmobility"
 
 include conf/tdx_version.conf
 
-DEFAULT_PREFERENCE = "1"
-
 FILESPATHPKG =. "git:"
 
-SRCREV = "552012e85e6b3eab7613be3a9426b2d5c89caad5"
-SRCBRANCH = "2016.11-hm"
-SRC_URI = " \
-    git://github.com/hostmobility/u-boot-toradex.git;protocol=https;branch=${SRCBRANCH} \
+SRC_URI += " \
 	file://default-gcc.patch \
     file://fw_env.config \
 "
 
 SRC_URI_append_tegra3 = " file://fw_unlock_mmc.sh"
-
-PV = "v2016.11-hm+git${SRCPV}"
-LOCALVERSION ?= "-${TDX_VER_ITEM}"
-
-S = "${WORKDIR}/git"
 
 INSANE_SKIP_${PN} = "already-stripped"
 EXTRA_OEMAKE_class-target = 'CROSS_COMPILE=${TARGET_PREFIX} CC="${CC} ${CFLAGS} ${LDFLAGS}" HOSTCC="${BUILD_CC} ${BUILD_CFLAGS} ${BUILD_LDFLAGS}" V=1'
