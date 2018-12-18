@@ -26,7 +26,7 @@ do_configure_prepend_mx4-v61 () {
    install -d ${S}/arch/arm/dts
 
    install -m 0644 ${THISDIR}/files/arch/arm/dts/vf610-mx4-v61.dts ${S}/arch/arm/dts/vf610-mx4-v61.dts
-   install -m 0644 ${THISDIR}/files/include/configs/mx4_t20.h ${S}/include/configs/mx4_v61.h
+   install -m 0644 ${THISDIR}/files/include/configs/mx4_v61.h ${S}/include/configs/mx4_v61.h
 
 }
 # C61 specific files
@@ -34,7 +34,7 @@ do_configure_prepend_mx4-c61 () {
 
    install -d ${S}/arch/arm/dts
    install -m 0644 ${THISDIR}/files/arch/arm/dts/vf610-mx4-c61.dts ${S}/arch/arm/dts/vf610-mx4-c61.dts
-   install -m 0644 ${THISDIR}/files/include/configs/mx4_t20.h ${S}/include/configs/mx4_c61.h
+   install -m 0644 ${THISDIR}/files/include/configs/mx4_c61.h ${S}/include/configs/mx4_c61.h
 
 
 }
