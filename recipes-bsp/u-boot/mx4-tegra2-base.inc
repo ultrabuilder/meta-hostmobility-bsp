@@ -1,7 +1,7 @@
 # Provide uboot files for t20 products
 # For now just copy the files to work directory (source).
 
-do_compile_prepend_tegra2() {
+do_configure_prepend_tegra2() {
    install -d ${S}/arch/arm/dts
    install -d ${S}/arch/arm/mach-tegra/tegra20
    install -d ${S}/board/toradex/mx4_tegra2
@@ -20,29 +20,29 @@ do_compile_prepend_tegra2() {
 }
 
 # T20 specific files
-do_compile_prepend_mx4-t20 () {
+do_configure_prepend_mx4-t20 () {
 
    install -m 0644 ${THISDIR}/files/include/configs/mx4_t20.h ${S}/include/configs/mx4_t20.h
 }
 # Ct (consat) specific files
-do_compile_prepend_mx4-ct () {
+do_configure_prepend_mx4-ct () {
 
    install -m 0644 ${THISDIR}/files/include/configs/mx4_ct.h ${S}/include/configs/mx4_ct.h
 }
 # Vcc specific files
-do_compile_prepend_mx4-vcc () {
+do_configure_prepend_mx4-vcc () {
 
    install -m 0644 ${THISDIR}/files/include/configs/mx4_t20.h ${S}/include/configs/mx4_t20.h
 }
 # Gtt specific files
-do_compile_prepend_mx4-gtt () {
+do_configure_prepend_mx4-gtt () {
 
     install -m 0644 ${THISDIR}/files/include/configs/mx4_t20.h ${S}/include/configs/mx4_t20.h
 
 }
 # Mil specific files
 # which mil header file is used or is both used?
-do_compile_prepend_mx4-mil () {
+do_configure_prepend_mx4-mil () {
 
     install -m 0644 ${THISDIR}/files/include/configs/mx4_mil.h ${S}/include/configs/mx4_mil.h
     install -m 0644 ${THISDIR}/files/include/configs/mx4_mil_se.h ${S}/include/configs/mx4_mil_se.h

@@ -1,11 +1,12 @@
 # Provide uboot files for t30 products
 #
-do_compile_prepend_tegra3() {
+S = "${WORKDIR}/git"
+do_configure_prepend_tegra3() {
 
    install -d ${S}/arch/arm/mach-tegra/tegra30
    install -d ${S}/board/toradex/mx4_t30
 
-   install -m 0644 ${THISDIR}/files/arch/arm/mach-tegra/tegra30/Kconfig ${S}/arch/arm/mach-tegra/tegra20/Kconfig
+   install -m 0644 ${THISDIR}/files/arch/arm/mach-tegra/tegra30/Kconfig ${S}/arch/arm/mach-tegra/tegra30/Kconfig
 
    install -m 0644 ${THISDIR}/files/board/toradex/mx4_t30/Kconfig ${S}/board/toradex/mx4_t30/Kconfig
    install -m 0644 ${THISDIR}/files/board/toradex/mx4_t30/Makefile ${S}/board/toradex/mx4_t30/Makefile

@@ -1,7 +1,7 @@
 # Provide uboot files for vf61 products
 #
 # Vf610 specific
-do_compile_prepend_vf() {
+do_configure_prepend_vf() {
 
    install -d ${S}/arch/arm/cpu/armv7/vf610/Kconfig
    install -d ${S}/arch/arm/dts
@@ -21,7 +21,7 @@ do_compile_prepend_vf() {
 }
 
 # V61 specific files
-do_compile_prepend_mx4-v61 () {
+do_configure_prepend_mx4-v61 () {
 
    install -d ${S}/arch/arm/dts
 
@@ -30,7 +30,7 @@ do_compile_prepend_mx4-v61 () {
 
 }
 # C61 specific files
-do_compile_prepend_mx4-c61 () {
+do_configure_prepend_mx4-c61 () {
 
    install -d ${S}/arch/arm/dts
    install -m 0644 ${THISDIR}/files/arch/arm/dts/vf610-mx4-c61.dts ${S}/arch/arm/dts/vf610-mx4-c61.dts
