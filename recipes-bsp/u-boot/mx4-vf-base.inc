@@ -3,7 +3,7 @@
 # Vf610 specific
 do_configure_prepend_vf() {
 
-   install -d ${S}/arch/arm/cpu/armv7/vf610/Kconfig
+   install -d ${S}/arch/arm/cpu/armv7/vf610
    install -d ${S}/arch/arm/dts
    install -d ${S}/arch/arm/include/asm/arch-vf610
    install -d ${S}/board/toradex/mx4_vf
