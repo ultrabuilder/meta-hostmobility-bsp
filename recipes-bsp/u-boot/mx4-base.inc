@@ -1,6 +1,6 @@
 # Provides common Tegra files on MX-4 products 
 # In future posisible compile this files instead of just copy it to workdir.
-# mx4-tegra3-base.inc (t30) or mx4-tegra2-base.inc(t20) or mx4-vf-base.inc(vf61) includes the makefile and additional files.
+# mx4-tegra3-base.inc (t30) or mx4-tegra2-base.inc(t20) includes the makefile and additional files.
 
 do_configure_prepend_tegra() {
 
