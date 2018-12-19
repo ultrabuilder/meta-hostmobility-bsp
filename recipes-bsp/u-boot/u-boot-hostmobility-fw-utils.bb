@@ -24,6 +24,24 @@ SRC_URI = " \
 	file://default-gcc.patch \
     file://fw_env.config \
 "
+SRC_URI_append_vf = " \
+    file://0001-Add-v61-and-c61-to-the-kconfig.patch \
+    file://0002-Add-Hm-specific-device-tree-to-makefile.patch \
+    file://0003-Add-HM-iomap-for-V61-UART-2.patch \
+"
+
+SRC_URI_append_tegra = " \
+    file://0006-Add-HM-specific-t20-t30-spi-fix.patch \
+"
+
+SRC_URI_append_tegra2 = " \
+    file://0002-Add-Hm-specific-device-tree-to-makefile.patch \
+    file://0004-Add-HM-T20-config.patch \
+"
+
+SRC_URI_append_tegra3 = " \
+    file://0005-Add-HM-T30-config.patch \
+"
 
 SRC_URI_append_tegra3 = " file://fw_unlock_mmc.sh"
 
@@ -47,9 +65,6 @@ do_configure_prepend () {
 
     # Install config fo target machine
     install -m 0644 ${THISDIR}/files/configs/${UBOOT_MACHINE} ${S}/configs/${UBOOT_MACHINE} || die "No default configuration for ${MACHINE} / ${UBOOT_MACHINE} available."
-
-    #Overwrite default with this config(should be a patch?!), maybe cp to overide default file?
-    install -m 0644 ${THISDIR}/files/drivers/spi/tegra20_slink.c ${S}/drivers/spi/tegra20_slink.c || die "No drivers/spi/tegra20_slink.c found"
 }
 
 do_compile () {

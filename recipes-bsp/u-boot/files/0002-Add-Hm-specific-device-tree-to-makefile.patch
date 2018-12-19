@@ -1,0 +1,33 @@
+From c459574d9a98a350371bcb9210660cd06c2871f1 Mon Sep 17 00:00:00 2001
+From: rikardo <rikard.olander@hostmobility.com>
+Date: Tue, 18 Dec 2018 15:45:04 +0100
+Subject: [PATCH 2/6] Add hm specific device tree to makefile
+
+---
+ arch/arm/dts/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm/dts/Makefile b/arch/arm/dts/Makefile
+index 69bee95..e25e280 100644
+--- a/arch/arm/dts/Makefile
++++ b/arch/arm/dts/Makefile
+@@ -49,6 +49,7 @@ dtb-$(CONFIG_TEGRA) += tegra20-harmony.dtb \
+ 	tegra20-ventana.dtb \
+ 	tegra20-whistler.dtb \
+ 	tegra20-colibri.dtb \
++	tegra20-mx4.dtb \
+ 	tegra30-apalis.dtb \
+ 	tegra30-beaver.dtb \
+ 	tegra30-cardhu.dtb \
+@@ -279,6 +280,8 @@ dtb-$(CONFIG_MACH_SUN9I) += \
+ 
+ dtb-$(CONFIG_VF610) += vf500-colibri.dtb \
+ 	vf610-colibri.dtb \
++	vf610-mx4-c61.dtb \
++	vf610-mx4-v61.dtb \
+ 	vf610-twr.dtb \
+ 	pcm052.dtb \
+ 	bk4r1.dtb
+-- 
+2.7.4
+

@@ -1,0 +1,42 @@
+From 85298554b0d6f62589ce453cd19749c5f84e7be5 Mon Sep 17 00:00:00 2001
+From: rikardo <rikard.olander@hostmobility.com>
+Date: Tue, 18 Dec 2018 15:47:22 +0100
+Subject: [PATCH 4/6] Add HM T20 config
+
+---
+ arch/arm/mach-tegra/tegra20/Kconfig | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/arch/arm/mach-tegra/tegra20/Kconfig b/arch/arm/mach-tegra/tegra20/Kconfig
+index 1bb8dff..409ec69 100644
+--- a/arch/arm/mach-tegra/tegra20/Kconfig
++++ b/arch/arm/mach-tegra/tegra20/Kconfig
+@@ -34,6 +34,18 @@ config TARGET_WHISTLER
+ config TARGET_COLIBRI_T20
+ 	bool "Toradex Colibri T20 board"
+ 
++config TARGET_MX4_T20
++	bool "Toradex Colibri T20 SOM on a MX-4 T20 board"
++
++config TARGET_MX4_MIL
++	bool "Toradex Colibri T20 SOM on a MX-4 MIL board"
++
++config TARGET_MX4_MIL_SE
++	bool "Toradex Colibri T20 SOM on a MX-4 MIL board (SECURE)"
++
++config TARGET_MX4_CT
++	bool "Toradex Colibri T20 SOM on a MX-4 CT board"
++
+ endchoice
+ 
+ config SYS_SOC
+@@ -49,5 +61,6 @@ source "board/compulab/trimslice/Kconfig"
+ source "board/nvidia/ventana/Kconfig"
+ source "board/nvidia/whistler/Kconfig"
+ source "board/toradex/colibri_t20/Kconfig"
++source "board/toradex/mx4_tegra2/Kconfig"
+ 
+ endif
+-- 
+2.7.4
+

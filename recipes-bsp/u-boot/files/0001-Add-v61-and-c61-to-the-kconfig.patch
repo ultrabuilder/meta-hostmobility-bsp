@@ -1,0 +1,38 @@
+From 7b70944d724005c5a084ef23f0394cc1cfe45f0f Mon Sep 17 00:00:00 2001
+From: rikardo <rikard.olander@hostmobility.com>
+Date: Tue, 18 Dec 2018 15:43:31 +0100
+Subject: [PATCH 1/6] Add v61 and c61 to the kconfig
+
+---
+ arch/arm/cpu/armv7/vf610/Kconfig | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm/cpu/armv7/vf610/Kconfig b/arch/arm/cpu/armv7/vf610/Kconfig
+index 13905b5..ee865fa 100644
+--- a/arch/arm/cpu/armv7/vf610/Kconfig
++++ b/arch/arm/cpu/armv7/vf610/Kconfig
+@@ -14,6 +14,14 @@ config TARGET_COLIBRI_VF
+ 	bool "Colibri VF50/61"
+ 	select BOARD_LATE_INIT
+ 
++config TARGET_MX4_V61
++	bool "MX-4 V61"
++	select BOARD_LATE_INIT
++
++config TARGET_MX4_C61
++	bool "MX-4 C61"
++	select BOARD_LATE_INIT
++
+ config TARGET_PCM052
+ 	bool "PCM-052"
+ 	select SYS_FSL_ERRATUM_ESDHC135
+@@ -32,5 +40,6 @@ config SYS_SOC
+ source "board/freescale/vf610twr/Kconfig"
+ source "board/phytec/pcm052/Kconfig"
+ source "board/toradex/colibri_vf/Kconfig"
++source "board/toradex/mx4_vf/Kconfig"
+ 
+ endif
+-- 
+2.7.4
+

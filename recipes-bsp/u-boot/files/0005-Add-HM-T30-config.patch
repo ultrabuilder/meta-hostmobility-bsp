@@ -1,0 +1,34 @@
+From 49bc678f10604255b7b620a66265bbe86cf6b37a Mon Sep 17 00:00:00 2001
+From: rikardo <rikard.olander@hostmobility.com>
+Date: Tue, 18 Dec 2018 15:47:48 +0100
+Subject: [PATCH 5/6] Add HM T30 config
+
+---
+ arch/arm/mach-tegra/tegra30/Kconfig | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/mach-tegra/tegra30/Kconfig b/arch/arm/mach-tegra/tegra30/Kconfig
+index e78331e..f92f4d9 100644
+--- a/arch/arm/mach-tegra/tegra30/Kconfig
++++ b/arch/arm/mach-tegra/tegra30/Kconfig
+@@ -16,6 +16,9 @@ config TARGET_CARDHU
+ config TARGET_COLIBRI_T30
+ 	bool "Toradex Colibri T30 board"
+ 
++config TARGET_MX4_T30
++	bool "Toradex Colibri T30 SOM on MX-4 T20/T30 board"
++
+ config TARGET_TEC_NG
+ 	bool "Avionic Design TEC-NG board"
+ 
+@@ -28,6 +31,7 @@ source "board/toradex/apalis_t30/Kconfig"
+ source "board/nvidia/beaver/Kconfig"
+ source "board/nvidia/cardhu/Kconfig"
+ source "board/toradex/colibri_t30/Kconfig"
++source "board/toradex/mx4_t30/Kconfig"
+ source "board/avionic-design/tec-ng/Kconfig"
+ 
+ endif
+-- 
+2.7.4
+

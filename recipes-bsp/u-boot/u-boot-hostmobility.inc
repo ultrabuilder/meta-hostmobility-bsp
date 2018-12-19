@@ -24,6 +24,25 @@ SRCBRANCH = "2016.11-toradex"
 
 SRC_URI = "git://git.toradex.com/u-boot-toradex.git;protocol=https;branch=${SRCBRANCH}"
 
+SRC_URI_append_vf = " \
+    file://0001-Add-v61-and-c61-to-the-kconfig.patch \
+    file://0002-Add-Hm-specific-device-tree-to-makefile.patch \
+    file://0003-Add-HM-iomap-for-V61-UART-2.patch \
+"
+
+SRC_URI_append_tegra = " \
+    file://0006-Add-HM-specific-t20-t30-spi-fix.patch \
+"
+
+SRC_URI_append_tegra2 = " \
+    file://0002-Add-Hm-specific-device-tree-to-makefile.patch \
+    file://0004-Add-HM-T20-config.patch \
+"
+
+SRC_URI_append_tegra3 = " \
+    file://0005-Add-HM-T30-config.patch \
+"
+
 DEFAULT_PREFERENCE = "1"
 
 S = "${WORKDIR}/git"
