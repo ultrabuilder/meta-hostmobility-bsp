@@ -67,7 +67,7 @@
 					"512k(u-boot-env2),"	\
 					"8m(kernel),"			\
 					"128m(config),"			\
-					"-(ubi)"
+					"-(ubiroot)"
 
 #undef CONFIG_CMD_IMLS
 
@@ -166,7 +166,7 @@
 		"fec_mac=${ethaddr} console=tty1 console=${console}" \
 		",${baudrate}n8 ${memargs}\0" \
 	"mtdparts=" MTDPARTS_DEFAULT "\0" \
-	"ubiargs=ubi.mtd=ubi root=ubi0:rootfs rootfstype=ubifs "	\
+	"ubiargs=ubi.mtd=ubiroot root=ubi0:rootfs rootfstype=ubifs "	\
 		"ubi.fm_autoconvert=1\0" \
 	UBI_BOOTCMD
 

@@ -42,7 +42,7 @@
 				"1m(cfgblock)ro,"		\
 				"8m(kernel),"		\
 				"256m(config),"		\
-				"-(ubi)"
+				"-(ubiroot)"
 
 #define BOARD_EXTRA_ENV_SETTINGS \
 	COMMON_EXTRA_ENV_SETTINGS \
