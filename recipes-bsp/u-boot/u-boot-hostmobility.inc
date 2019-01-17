@@ -37,10 +37,13 @@ SRC_URI_append_tegra = " \
 SRC_URI_append_tegra2 = " \
     file://0002-Add-Hm-specific-device-tree-to-makefile.patch \
     file://0004-Add-HM-T20-config.patch \
+    file://0008-Fix-hang-on-SBC1-and-SBC2-where-clock-set-to-408Mhz-t20.patch \
 "
 
 SRC_URI_append_tegra3 = " \
     file://0005-Add-HM-T30-config.patch \
+    file://0002-Add-Hm-specific-device-tree-to-makefile.patch \
+    file://0007-Fix-hang-on-SBC1-and-SBC2-where-clock-set-to-408Mhz-t30.patch \
 "
 
 DEFAULT_PREFERENCE = "1"

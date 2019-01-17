@@ -1,0 +1,39 @@
+From 724d9fd8aef393c1515d4b877dfc3a281913474f Mon Sep 17 00:00:00 2001
+From: rikardo <rikard.olander@hostmobility.com>
+Date: Thu, 17 Jan 2019 13:43:45 +0100
+Subject: [PATCH 2/2] Fix hang on SBC1 and SBC2 where clock set to 408Mhz
+
+This patch is a similare fix that was done on 6faac1b for colibri 20.
+this prevent error -22 on tegra_dvfs or hang.
+---
+ arch/arm/mach-tegra/tegra20/clock.c | 14 --------------
+ 1 file changed, 14 deletions(-)
+
+diff --git a/arch/arm/mach-tegra/tegra20/clock.c b/arch/arm/mach-tegra/tegra20/clock.c
+index 71052be..58afcf92 100644
+--- a/arch/arm/mach-tegra/tegra20/clock.c
++++ b/arch/arm/mach-tegra/tegra20/clock.c
+@@ -751,20 +751,6 @@ int tegra_plle_enable(void)
+ }
+ 
+ struct periph_clk_init periph_clk_init_table[] = {
+-#ifndef CONFIG_TARGET_COLIBRI_T20
+-	{ PERIPH_ID_SPI1, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SBC1, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SBC2, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SBC3, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SBC4, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_HOST1X, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_DISP1, CLOCK_ID_CGENERAL },
+-	{ PERIPH_ID_NDFLASH, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SDMMC1, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SDMMC2, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SDMMC3, CLOCK_ID_PERIPH },
+-	{ PERIPH_ID_SDMMC4, CLOCK_ID_PERIPH },
+-#endif /* CONFIG_TARGET_COLIBRI_T20 */
+ 	{ PERIPH_ID_PWM, CLOCK_ID_SFROM32KHZ },
+ 	{ PERIPH_ID_DVC_I2C, CLOCK_ID_PERIPH },
+ 	{ PERIPH_ID_I2C1, CLOCK_ID_PERIPH },
+-- 
+2.7.4
+
