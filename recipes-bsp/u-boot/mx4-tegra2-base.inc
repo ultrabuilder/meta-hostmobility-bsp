@@ -5,7 +5,7 @@ do_configure_prepend_tegra2() {
    install -d ${S}/arch/arm/dts
    install -d ${S}/board/toradex/mx4_tegra2
 
-
+   install -m 0644 ${THISDIR}/files/arch/arm/dts/tegra30-mx4.dts ${S}/arch/arm/dts/tegra30-mx4.dts
    install -m 0644 ${THISDIR}/files/arch/arm/dts/tegra20-mx4.dts ${S}/arch/arm/dts/tegra20-mx4.dts
 
    install -m 0644 ${THISDIR}/files/board/toradex/mx4_tegra2/Kconfig ${S}/board/toradex/mx4_tegra2/Kconfig
