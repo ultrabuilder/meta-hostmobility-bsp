@@ -176,7 +176,7 @@
 		"consoleblank=0 no_console_suspend=1 console=tty1 " \
 		"console=${console},${baudrate}n8 debug_uartport=lsport,0 " \
 		"${memargs}\0" \
-	"ubiargs=ubi.mtd=ubiroot root=ubi0:rootfs rootfstype=ubifs "	\
+	"ubiargs=ubi.mtd=ubi root=ubi0:rootfs rootfstype=ubifs "	\
 		"ubi.fm_autoconvert=1\0" \
 	"mtdparts=" MTDPARTS_DEFAULT "\0" \
 	UBI_BOOTCMD "\0" \
