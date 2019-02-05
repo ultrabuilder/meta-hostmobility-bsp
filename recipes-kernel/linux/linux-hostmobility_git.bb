@@ -20,16 +20,6 @@ config_script () {
 #    #sets CONFIG_TEGRA_CAMERA unconditionally to 'y'
 #    sed -i -e /CONFIG_TEGRA_CAMERA/d ${B}/.config
 #    echo "CONFIG_TEGRA_CAMERA=y" >> ${B}/.config
-  sed -i -e /CONFIG_FW_LOADER/d ${B}/.config
-  echo "CONFIG_FW_LOADER=y" >> ${B}/.config
-  sed -i -e /CONFIG_ATH9K_HTC_DEBUG/d ${B}/.config
-  echo "CONFIG_ATH9K_HTC_DEBUG=y" >> ${B}/.config
-  sed -i -e /CONFIG_LIB80211/d ${B}/.config
-  echo "CONFIG_LIB80211=y" >> ${B}/.config
-  sed -i -e /LIB80211_DEBUG/d ${B}/.config
-  echo "LIB80211_DEBUG=y" >> ${B}/.config
- # sed -i -e /CONFIG_WIRELESS_EXT/d ${B}/.config
- # echo "CONFIG_WIRELESS_EXT=y" >> ${B}/.config
 }
 
 do_configure_prepend () {
