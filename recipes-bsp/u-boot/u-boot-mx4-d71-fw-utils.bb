@@ -40,9 +40,4 @@ do_install () {
     install -m 644 ${WORKDIR}/fw_env.config ${D}${sysconfdir}/
 }
 
-do_install_append_tegra3() {
-    install -d ${D}${sysconfdir}/profile.d/
-    install -m 0644 ${WORKDIR}/fw_unlock_mmc.sh ${D}${sysconfdir}/profile.d/fw_unlock_mmc.sh
-}
-
 PACKAGE_ARCH = "${MACHINE_ARCH}"
