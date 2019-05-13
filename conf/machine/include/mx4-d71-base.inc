@@ -15,11 +15,13 @@ PREFERRED_PROVIDER_u-boot ?= "u-boot-mx4-d71"
 PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-mx4-d71"
 PREFERRED_PROVIDER_u-boot-fw-utils ?= "u-boot-mx4-d71-fw-utils"
 
-# U-Boot NAND binary includes 0x400 padding required for NAND boot
 UBOOT_BINARY ?= "u-boot.bin"
 UBOOT_MAKE_TARGET = "u-boot.bin"
 
-IMAGE_FSTYPES = "tar.xz"
+IMAGE_FSTYPES = "wic.gz tar.xz"
+# wic support
+WKS_FILE = "sdimage-bootpart.wks"
+WIC_CREATE_EXTRA_ARGS_append = " --no-fstab-update"
 
 
 SERIAL_CONSOLE ?= "115200 ttyLP0"

@@ -1,19 +1,26 @@
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 require recipes-kernel/linux/linux-imx.inc
+include conf/tdx_version.conf
 
 SUMMARY = "Linux kernel for MX-4 products using Toradex Colibri imx7 COMs"
 
-SRC_URI = "git://github.com/hostmobility/linux-toradex.git;protocol=https;branch=${SRCBRANCH} \
+SRC_URI = "git://git.toradex.com/linux-toradex.git;protocol=git;branch=${SRCBRANCH} \
            file://defconfig"
 
+# Load USB functions configurable through configfs (CONFIG_USB_CONFIGFS)
 KERNEL_MODULE_AUTOLOAD += "${@bb.utils.contains('COMBINED_FEATURES', 'usbgadget', ' libcomposite', '',d)}"
 
-LOCALVERSION = "-${SRCBRANCH}"
-SRCBRANCH = "mx4-bsp-2.0.x-IMX7"
-SRCREV = "b1555bfbf38818bc6fed8d921b55b7b207249c53"
-DEPENDS += "lzop-native bc-native u-boot-mkimage-native"
-COMPATIBLE_MACHINE = "(mx4-d71)"
+PV_append = "+git${SRCPV}"
 
-# We use CONFIG_ARM_APPENDED_DTB=y and below shall take care of that
+LOCALVERSION = "-4.9-1.0.x-imx"
+
+SRCREV = "3bb6e3284a1bb88f142528537e6573f9d9f39aaa"
+SRCBRANCH = "toradex_4.9-1.0.x-imx"
+SRCREV_use-head-next = "${AUTOREV}"
+SRCBRANCH_use-head-next = "toradex_4.9-1.0.x-imx-next"
+
+DEPENDS += "lzop-native bc-native u-boot-mkimage-native"
+COMPATIBLE_MACHINE = "(mx6|mx7|mx4-d71)"
 
 do_deploy_append() {
     cd ${B}
