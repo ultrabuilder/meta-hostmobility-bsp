@@ -23,6 +23,17 @@ IMAGE_FSTYPES = "wic.gz tar.xz"
 WKS_FILE = "sdimage-bootpart.wks"
 WIC_CREATE_EXTRA_ARGS_append = " --no-fstab-update"
 
+UBOOT_ENTRYPOINT = "0x82008000"
+UBOOT_LOADADDRESS = "${UBOOT_ENTRYPOINT}"
 
 SERIAL_CONSOLE ?= "115200 ttyLP0"
 
+MACHINE_EXTRA_RDEPENDS_append = " \
+    kernel-modules \
+    kernel-module-pic \
+    u-boot-hostmobility-fw-utils \
+    usb-rndis-systemd \
+    ${@bb.utils.contains('LICENSE_FLAGS_WHITELIST', 'closed', \
+                          'packagegroup-hostmobility-commercial', '', d)} \
+    usb-suspend-resume \
+"
