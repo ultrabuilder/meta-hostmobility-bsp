@@ -8,8 +8,8 @@ DEPENDS = "mtd-utils"
 
 FILESPATHPKG =. "git:"
 
-SRCREV = "${AUTOREV}"
-SRCBRANCH = "mx4-bsp-2.0.x-IMX7"
+SRCREV = "808d51634befdf1ecf76ab66003ac225e7eeef37"
+SRCBRANCH = "2016.11-hm"
 
 SRC_URI = " \
     git://github.com/hostmobility/u-boot-toradex.git;protocol=https;branch=${SRCBRANCH} \
