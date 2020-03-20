@@ -5,7 +5,9 @@ include conf/tdx_version.conf
 SUMMARY = "Linux kernel for MX-4 products using Toradex Colibri imx7 COMs"
 
 SRC_URI = "git://git.toradex.com/linux-toradex.git;protocol=git;branch=${SRCBRANCH} \
-           file://defconfig"
+           file://defconfig \
+           file://0001-Add-mx4-d71-device-tree.patch \
+           "
 
 # Load USB functions configurable through configfs (CONFIG_USB_CONFIGFS)
 KERNEL_MODULE_AUTOLOAD += "${@bb.utils.contains('COMBINED_FEATURES', 'usbgadget', ' libcomposite', '',d)}"
