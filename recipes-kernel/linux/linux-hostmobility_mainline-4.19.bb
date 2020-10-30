@@ -59,6 +59,8 @@ KERNEL_EXTRA_ARGS = " LOADADDR=0x80008000 "
 # One possibiltiy for changes to the defconfig:
 config_script () {
     echo "dummy" > /dev/null
+    # Enable VLAN in kernel
+    echo "CONFIG_VLAN_8021Q=y" >> ${B}/.config
 }
 
 do_configure_prepend () {
